@@ -5,22 +5,68 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner (System.in);
+        Scanner sc = new Scanner(System.in);
 
-	    System.out.print("Введите размер массива");
+        int[] a = new int[100];
+        int count = 0;
+        int i;
 
-	    int size = input.nextInt();
+        for (i = 0; i < 100; i++)        {
+            System.out.println("Введите число");
+            a[i] = sc.nextInt();
+            count++;
+            break;
+        }
 
-	    int array[] = new int[size];
+        for (i = 0; i < 100; i++) {
 
-	    System.out.println("Введите числа");
-	    for (int i = 0; i < size; i++)
-        array [i] = input.nextInt();
+            System.out.println("1. Показать массив\n" +
+                    "2. Добавить в начало\n" +
+                    "3. Добавить в конец\n" +
+                    "4. Удалить по позиции\n" +
+                    "5. Выход");
+            break;
+        }
 
-	    if (array [i] / 2 = 0) then
+        while (true) {
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    for (i = 0; i < count; i++)
+                        System.out.println("[" + a[i] + "]");
+                    break;
+                case 2:
+                    System.out.println("Новый элемент:");
+                    int ad = sc.nextInt();
+                    for (i = 0; i < count; i++)
+                        ad = a[0];
+                    a[i] = a[i + 1];
+                    count++;
+                    System.out.println("[" + a[i] + "]");
+                    break;
+                case 3:
+                    System.out.println("Новый элемент:");
+                    a[i + 1] = sc.nextInt();
+                    System.out.println("[" + a[i] + "]");
+                    break;
+                case 4:
+                    System.out.println("Номер позиции:");
+                    int n = sc.nextInt();
+                    for (i = (n - 1); i < count - 1; i++)
+                        a[i] = a[i + 1];
+                    count--;
+                    System.out.println("[" + a[i] + "]");
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Ошибка");
 
-                array [i] = 0;
 
-                System.out.println(array[i]);
+            }
+        }
+
+
     }
 }
