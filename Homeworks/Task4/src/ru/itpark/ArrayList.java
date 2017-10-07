@@ -23,7 +23,7 @@ public class ArrayList {
 
     public void addToBegin(int element) {
         element = elements[0];
-        for (int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             elements[i] = elements[i + 1];
             count++;
         }
@@ -39,10 +39,9 @@ public class ArrayList {
     }
 
 
-
     public int get(int index) {
-        if (elements[index] )
-        return elements[index];
+        if (elements[index] != 0)
+            return elements[index];
         else {
             return -1;
         }
@@ -68,12 +67,12 @@ public class ArrayList {
     }
 
     public void reverse() {
-            for (int i = 0; i < elements.length / 2; i++) {
-                int temp = elements[i];
-                elements[i] = elements[elements.length - 1 - i];
-                elements[elements.length - 1 - i] = temp;
-            }
+        for (int i = 0; i < count / 2; i++) {
+            int temp = elements[i];
+            elements[i] = elements[count - 1 - i];
+            elements[count - 1 - i] = temp;
         }
+    }
 
 
     public void remove(int index) {
@@ -85,11 +84,14 @@ public class ArrayList {
 
 
     public int find(int element) {
-        for (int i = 0; i < count; i++)
-            if (elements[i] = element)
+        for (int i = 0; i < count; i++) {
+            if (elements[i] == element) {
                 return i;
-        else {
-                return -1;
+            }
+        }      return -1;
+
+
+        }
     }
-}
-}
+
+

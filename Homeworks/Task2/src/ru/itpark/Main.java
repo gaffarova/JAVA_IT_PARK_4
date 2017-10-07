@@ -11,50 +11,48 @@ public class Main {
         int count = 0;
         int i;
 
-        for (i = 0; i < 100; i++)        {
-            System.out.println("Введите число");
-            a[i] = sc.nextInt();
-            count++;
-            break;
-        }
-
-        for (i = 0; i < 100; i++) {
-
-            System.out.println("1. Показать массив\n" +
-                    "2. Добавить в начало\n" +
-                    "3. Добавить в конец\n" +
-                    "4. Удалить по позиции\n" +
-                    "5. Выход");
-            break;
-        }
+        System.out.println("1. Показать массив\n" +
+                "2. Добавить в начало\n" +
+                "3. Добавить в конец\n" +
+                "4. Удалить по позиции\n" +
+                "5. Выход");
 
         while (true) {
-            int choice = sc.nextInt();
+                int choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    for (i = 0; i < count; i++)
+                    for (i = 0; i < count; i++) {
                         System.out.println("[" + a[i] + "]");
+                    }
                     break;
                 case 2:
                     System.out.println("Новый элемент:");
-                    int ad = sc.nextInt();
-                    for (i = 0; i < count; i++)
-                        ad = a[0];
-                    a[i] = a[i + 1];
-                    count++;
-                    System.out.println("[" + a[i] + "]");
+                    int addition = sc.nextInt();
+                    for (i = 0; i < count; i++) {
+                        addition = a[0];
+                        a[i] = a[i + 1];
+                        count++;
+                    }
+                        System.out.println("[" + a[i] + "]");
+
                     break;
                 case 3:
                     System.out.println("Новый элемент:");
-                    a[i + 1] = sc.nextInt();
-                    System.out.println("[" + a[i] + "]");
+                    addition = sc.nextInt();
+                        for (i = 0; i < count; i++) {
+                        addition = a[i + 1];
+                        count++;
+                    }
+                     System.out.println("[" + a[i] + "]");
                     break;
                 case 4:
                     System.out.println("Номер позиции:");
                     int n = sc.nextInt();
-                    for (i = (n - 1); i < count - 1; i++)
-                        a[i] = a[i + 1];
-                    count--;
+                    a[n] = 0;
+                    for (i = (n + 1); i < count; i++) {
+                        a[i] = a[i - 1];
+                        count--;
+                    }
                     System.out.println("[" + a[i] + "]");
                     break;
                 case 5:

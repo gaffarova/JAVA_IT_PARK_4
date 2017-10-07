@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        final int INITIAL_SIZE = 100
 
         ArrayList lists[] = new ArrayList[5];
 
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             System.out.println("Меню:\n" +
                     "1. Создать список\n" +
@@ -21,19 +21,19 @@ public class Main {
                     System.out.println("Введите номер создаваемого списка: [0..4]");
                     int listNumber = scanner.nextInt();
                     lists[listNumber] = new ArrayList();
-                    for (int i = 0; i < INITIAL_SIZE; i++) {
-                        System.out.println("Ваш список");
-                        lists[listNumber] = scanner.nextInt();
-                    }
                     break;
                 case 2:
-                    if (lists[listNumber] != null)
-                        System.out.println(lists[listNumber]);
-                    else {
-                        System.out.println("Ошибка");
+                    for (int i = 0; i < 5; i++) {
+                        if (lists[i] != null)
+                            System.out.println(lists[i]);
+                        else {
+                            System.err.println("Ошибка");
+                        }
                     }
                     break;
                 case 3: {
+                    System.out.println("Номер списка:");
+                    int i = scanner.nextInt();
                     while (true) {
                         System.out.println("1. Добавить в конец\n" +
                                 "2. Добавить в начало\n" +
@@ -49,55 +49,55 @@ public class Main {
                             case 1:
                                 System.out.println("Новый элемент в конец:");
                                 int element = scanner.nextInt();
-                                lists[listNumber].add(element);
-                                System.out.println(lists[listNumber]);
+                                lists[i].add(element);
+                                System.out.println(lists[i]);
                                 break;
                             case 2:
                                 System.out.println("Новый элемент в начало:");
                                 element = scanner.nextInt();
-                                lists[listNumber].addToBegin(element);
-                                System.out.println(lists[listNumber]);
+                                lists[i].addToBegin(element);
+                                System.out.println(lists[i]);
                                 break;
                             case 3:
                                 System.out.println("Новый элемент, нужный индекс");
                                 element = scanner.nextInt();
                                 int index = scanner.nextInt();
-                                lists[listNumber].insert(element, index);
-                                System.out.println(lists[listNumber]);
+                                lists[i].insert(element, index);
+                                System.out.println(lists[i]);
                                 break;
                             case 4:
                                 System.out.println("Нужный индекс:");
                                 index = scanner.nextInt();
-                                System.out.println(lists[listNumber].get(index));
+                                System.out.println(lists[i].get(index));
                                 break;
                             case 5:
                                 System.out.println("Нужный индекс, новый элемент:");
                                 index = scanner.nextInt();
                                 element = scanner.nextInt();
-                                lists[listNumber].replace(index, element);
-                                System.out.println(lists[listNumber]);
+                                lists[i].replace(index, element);
+                                System.out.println(lists[i]);
                                 break;
                             case 6:
-                                lists[listNumber].sort();
-                                System.out.println(lists[listNumber]);
+                                lists[i].sort();
+                                System.out.println(lists[i]);
                                 break;
                             case 7:
-                                lists[listNumber].reverse();
-                                System.out.println(lists[listNumber]);
+                                lists[i].reverse();
+                                System.out.println(lists[i]);
                                 break;
                             case 8:
                                 System.out.println("Индекс удаляемого элемента:");
                                 index = scanner.nextInt();
-                                lists[listNumber].remove(index);
-                                System.out.println(lists[listNumber]);
+                                lists[i].remove(index);
+                                System.out.println(lists[i]);
                                 break;
                             case 9:
                                 System.out.println("Элемент для поиска:");
                                 element = scanner.nextInt();
-                                System.out.println(lists[listNumber].find(element));
+                                System.out.println(lists[i].find(element));
                                 break;
                             default:
-                                System.out.println("Ошибка");
+                                System.err.println("Ошибка");
 
 
                         }
