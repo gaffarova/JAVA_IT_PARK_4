@@ -1,17 +1,17 @@
 package com.company;
 
 public class EmptySpaceFinder implements Observer {
-    private int emtySpaceCount = 0;
+    private int emptySpaceCount = 0;
 
     @Override
     public void count(char a) {
         if (a == ' ') {
-            emtySpaceCount++;
+            emptySpaceCount++;
         }
     }
 
     @Override
     public String toString() {
-        return ("Пробелы - " + emtySpaceCount);
+        return ("Пробелы - " + emptySpaceCount);
     }
 }

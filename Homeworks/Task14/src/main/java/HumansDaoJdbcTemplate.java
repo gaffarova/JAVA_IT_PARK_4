@@ -11,10 +11,6 @@ public class HumansDaoJdbcTemplate implements HumansDao {
             "SELECT FROM owner WHERE name = ?";
 
     //language=SQL
-    private static final String SQL_SELECT_BY_AGE =
-            "SELECT FROM owner WHERE age = ?";
-
-    //language=SQL
     private static final String SQL_INSERT_USER =
             "INSERT INTO owner(age, name) VALUES (?, ?)";
 
@@ -29,6 +25,10 @@ public class HumansDaoJdbcTemplate implements HumansDao {
     //language=SQL
     private static final String SQL_DELETE_BY_ID =
             "DELETE FROM owner WHERE id = ?";
+
+    //language=SQL
+    private static final String SQL_UPDATE_AGE =
+            "UPDATE owner SET age = ? WHERE id = ?";
 
     private JdbcTemplate template;
 
@@ -76,11 +76,13 @@ public class HumansDaoJdbcTemplate implements HumansDao {
     }
 
     public void update(Human model) {
+        template.update
+                (SQL_UPDATE_AGE, model.getAge(), model.getId());
     }
 
     public void delete(Long id) {
-        template.query
-                (SQL_DELETE_BY_ID, rowMapper, id);
+        template.update
+                (SQL_DELETE_BY_ID, id);
     }
 
     public List<Human> findAll() {
@@ -88,6 +90,6 @@ public class HumansDaoJdbcTemplate implements HumansDao {
                 template.query
                         (SQL_FIND_ALL, rowMapper);
 
-        return null;
+        return result;
     }
 }

@@ -20,15 +20,14 @@ public class Channel {
 
     public String getProgramName() {
         LocalTime currentTime = LocalTime.now();
-        for (Program program: programs) {
+        for (Program program : programs) {
             if (currentTime.isAfter(program.getBeginTime()) && currentTime.isBefore(program.getEndTime())) {
-                return program.getName();
+                return "You are watching " + program.getName() + " program now";
             }
         }
         return null;
     }
 
-    public String getName() {
-        return name;
-    }
+
 }
+

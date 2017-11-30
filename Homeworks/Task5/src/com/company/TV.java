@@ -23,11 +23,12 @@ public class TV {
         channels[count++] = channel;
     }
 
-    public void showProgram(String name) {
-        for (int i = 0; i < count; i++) {
-            if (channels[i].getName().equals(name)) {
-                System.out.println(channels[i].getProgramName());
-            }
-        }
+    public void showProgram(int number) {
+        System.out.println(channels[number].getProgramName());
     }
 }
+
+
+
+
+

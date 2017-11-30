@@ -13,7 +13,8 @@ public class Main {
         dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
 
-        //HumansDao humansDao = new HumansDaoJdbcTemplate(dataSource);
+        HumansDao humansDao = new HumansDaoJdbcTemplate(dataSource);
+        humansDao.delete((long) 7);
 
         //HumanService service = new HumanService(humansDao);
 
@@ -24,13 +25,14 @@ public class Main {
 
         //service.registerUser(human);
 
-        CarsDao carsDao = new CarsDaoJdbcTemplate(dataSource);
-        CarService carService = new CarService(carsDao);
-        Car car = Car.builder()
-                .number("A123EC")
-                .model("A")
-                .build();
-        carService.registerCar(car);
+        //CarsDao carsDao = new CarsDaoJdbcTemplate(dataSource);
+        //CarService carService = new CarService(carsDao);
+
+        //Car car = Car.builder()
+                //.number("A123EC")
+                //.model("A")
+                //.build();
+        //carService.registerCar(car);
 
     }
 }

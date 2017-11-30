@@ -7,8 +7,8 @@ import java.util.List;
 public class CarsDaoJdbcTemplate implements CarsDao {
 
     //language=SQL
-    private static final String SQL_SELECT_BY_MODEL =
-            "SELECT FROM car WHERE model = ?";
+    private static final String SQL_FIND_ALL =
+            "SELECT * FROM car";
 
     //language=SQL
     private static final String SQL_SELECT_BY_NUMBER =
@@ -25,6 +25,10 @@ public class CarsDaoJdbcTemplate implements CarsDao {
     //language=SQL
     private static final String SQL_FIND_BY_ID =
             "SELECT FROM car WHERE id = ?";
+
+    //language=SQL
+    private static final String SQL_UPDATE_NUMBER =
+            "UPDATE car SET number = ? WHERE id = ?";
 
     private JdbcTemplate template;
 
@@ -60,12 +64,13 @@ public class CarsDaoJdbcTemplate implements CarsDao {
     }
 
     public void delete(Long id) {
-        template.query
-                (SQL_DELETE_BY_ID, rowMapper, id);
+        template.update
+                (SQL_DELETE_BY_ID, id);
     }
 
     public void update(Car model) {
-
+        template.update
+                (SQL_UPDATE_NUMBER, model.getNumber(), model.getId());
     }
 
     public Car find(Long id) {
@@ -79,7 +84,10 @@ public class CarsDaoJdbcTemplate implements CarsDao {
     }
 
     public List<Car> findAll() {
-        return null;
+        List<Car> result =
+                template.query
+                        (SQL_FIND_ALL, rowMapper);
+        return result;
     }
 }
 
