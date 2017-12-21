@@ -14,8 +14,10 @@ public class Main {
             int currentByte = input.read();
             int number = 0;
             while (currentByte != -1) {
-                if (currentByte == ' ') {
+                if (currentByte >= '0' && currentByte <= '9') {
                     currentByte = input.read();
+                    currentByte = currentByte * 10 + currentByte;
+
 
 
                 }

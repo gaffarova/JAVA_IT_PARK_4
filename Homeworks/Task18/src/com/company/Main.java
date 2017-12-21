@@ -17,9 +17,9 @@ public class Main {
         binarySearchTree.insert(6);
         binarySearchTree.insert(82);
 
-        //binarySearchTree.inOrderSearch(binarySearchTree.getRoot());
-        //binarySearchTree.preOrderSearch(binarySearchTree.getRoot());
-        binarySearchTree.postOrderSearch(binarySearchTree.getRoot());
+        binarySearchTree.inOrderSearch();
+        //binarySearchTree.preOrderSearch();
+        //binarySearchTree.postOrderSearch();
 
 
 

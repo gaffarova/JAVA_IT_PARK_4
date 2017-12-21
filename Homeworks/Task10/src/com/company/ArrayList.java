@@ -1,46 +1,48 @@
 package com.company;
 
 public class ArrayList implements List {
+    private int[] array;
+    private int count;
 
     public ArrayList() {
+        this.count = 0;
+    }
 
-        @Override
-        public void add(Object element) {
-            elements[count] = element;
-            count++;
-        }
+    @Override
+    public void add(Object element) {
+        element = array[count];
+        count++;
+    }
 
-        @Override
-        public void addToBegin(Object object) {
+    @Override
+    public void addToBegin(Object object) {
 
-        }
-        }
+    }
 
-        @Override
-        public Object get(int index) {
+    @Override
+    public Object get(int index) {
         return null;
-        }
+    }
 
-        @Override
+    @Override
     public void remove(Object object) {
 
-        }
+    }
 
-        @Override
+    @Override
     public int indexOf(Object object) {
         return 0;
-        }
+    }
 
-        @Override
+    @Override
     public int size() {
-        return 0;
-        }
+        return count;
+    }
 
-        @Override
+    @Override
     public Iterator iterator() {
         return null;
-        }
-
+    }
 
 
 }

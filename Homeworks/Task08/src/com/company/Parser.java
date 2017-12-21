@@ -25,7 +25,7 @@ public class Parser implements Observable {
     }
 
     public static class Builder {
-        private Observer observers[] = new Observer[5];
+        private Observer observers[] = new Observer[3];
         private int count = 0;
 
         public Builder addObserver(Observer observer) {

@@ -2,15 +2,7 @@ package com.company;
 
 public class BinarySearchTree {
 
-    private Node root;
-
-    public BinarySearchTree() {
-        this.root = null;
-    }
-
-    public Node getRoot() {
-        return root;
-    }
+    public Node root;
 
     class Node {
         int data;
@@ -34,7 +26,7 @@ public class BinarySearchTree {
         }
 
         Node current = root;
-        Node previous = null;
+        Node previous;
 
         while (true) {
             previous = current;
@@ -54,7 +46,19 @@ public class BinarySearchTree {
         }
     }
 
-    public void preOrderSearch(Node node) {
+    public void preOrderSearch() {
+        preOrderSearch(root);
+    }
+
+    public void postOrderSearch() {
+        postOrderSearch(root);
+    }
+
+    public void inOrderSearch() {
+        inOrderSearch(root);
+    }
+
+    private void preOrderSearch(Node node) {
         if (node != null) {
             System.out.println(node.data + " ");
             preOrderSearch(node.left);
@@ -62,7 +66,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void postOrderSearch(Node node) {
+    private void postOrderSearch(Node node) {
         if (node != null) {
             postOrderSearch(node.left);
             postOrderSearch(node.right);
@@ -70,7 +74,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void inOrderSearch(Node node) {
+    private void inOrderSearch(Node node) {
         if (node != null) {
             inOrderSearch(node.left);
             System.out.println(node.data + " ");
