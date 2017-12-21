@@ -5,7 +5,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-public class UsersDaoIdbcTest {
+public class UsersDaoJdbcTest {
     UsersDaoJdbcTemplateImpl usersDaoJdbcTemplate;
 
     @Before
