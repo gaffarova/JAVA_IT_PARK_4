@@ -5,8 +5,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-public class UsersDaoJdbcTest {
-    UsersDaoJdbcTemplateImpl usersDaoJdbcTemplate;
+public class ConsumerDaoJdbcTest {
+    ConsumersDaoJdbcTemplateImpl consumersDaoJdbcTemplate;
 
     @Before
     public void setUp() throws Exception {
@@ -15,16 +15,16 @@ public class UsersDaoJdbcTest {
                 .addScript("schema.sql")
                 .addScript("data.sql")
                 .build();
-        usersDaoJdbcTemplate = new UsersDaoJdbcTemplateImpl(database);
+        consumersDaoJdbcTemplate = new ConsumersDaoJdbcTemplateImpl(database);
     }
 
     @Test
     public void find() throws Exception {
-        User actual = usersDaoJdbcTemplate.find("Lion");
-        User expected = User.builder()
-                .id(4L)
-                .name("Lion")
-                .password("12345")
+        Consumer actual = consumersDaoJdbcTemplate.find("Евгения");
+        Consumer expected = Consumer.builder()
+                .id(2L)
+                .name("Евгения")
+                .password("2468")
                 .build();
 
         Assert.assertEquals(expected, actual);

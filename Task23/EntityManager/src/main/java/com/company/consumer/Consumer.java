@@ -1,5 +1,11 @@
+package com.company.consumer;
+
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 @Getter
 @Setter
 @AllArgsConstructor
@@ -7,8 +13,12 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @Builder
-public class User {
+public class Consumer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String password;
 }

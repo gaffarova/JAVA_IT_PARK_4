@@ -4,28 +4,28 @@ import org.springframework.jdbc.core.RowMapper;
 import javax.sql.DataSource;
 import java.util.List;
 
-public class UsersDaoJdbcTemplateImpl implements UsersDao<User> {
+public class ConsumersDaoJdbcTemplateImpl implements ConsumersDao<Consumer> {
 
     //language=SQL
     private static final String INSERT_USER =
-            "INSERT INTO user(name, password) VALUES (?, ?)";
+            "INSERT INTO consumer(name, password) VALUES (?, ?)";
 
     //language=SQL
     private static final String FIND_USER =
-            "SELECT * FROM user WHERE name = ?";
+            "SELECT * FROM consumer WHERE name = ?";
 
     //language=SQL
     private static final String DELETE_USER =
-            "DELETE FROM user WHERE id = ?";
+            "DELETE FROM consumer WHERE id = ?";
 
     //language=SQL
     private static final String UPDATE_USER =
-            "UPDATE user SET name = ? WHERE name = ?";
+            "UPDATE consumer SET name = ? WHERE name = ?";
 
     private JdbcTemplate template;
 
-    private RowMapper<User> rowMapper = (resultSet, rowNum) -> {
-        User result = User.builder()
+    private RowMapper<Consumer> rowMapper = (resultSet, rowNum) -> {
+        Consumer result = Consumer.builder()
                 .id(resultSet.getLong("id"))
                 .name(resultSet.getString("name"))
                 .password(resultSet.getString("password"))
@@ -33,21 +33,21 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao<User> {
         return result;
     };
 
-    public UsersDaoJdbcTemplateImpl(DataSource dataSource) {
+    public ConsumersDaoJdbcTemplateImpl(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
 
 
     @Override
-    public void save(User user) {
+    public void save(Consumer consumer) {
             template.update
-                    (INSERT_USER, user.getPassword(), user.getName());
+                    (INSERT_USER, consumer.getPassword(), consumer.getName());
     }
 
 
     @Override
-    public User find(String name) {
-        List<User> result =
+    public Consumer find(String name) {
+        List<Consumer> result =
                 template.query
                         (FIND_USER, rowMapper, name);
         if (result.size() > 0) {
@@ -57,7 +57,7 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao<User> {
     }
 
     @Override
-    public void update(User user) {
+    public void update(Consumer consumer) {
         template.update(UPDATE_USER);
     }
 

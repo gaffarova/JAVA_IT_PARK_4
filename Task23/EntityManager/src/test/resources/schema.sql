@@ -1,5 +1,5 @@
 CREATE TABLE consumer (
   id IDENTITY PRIMARY KEY,
-  name VARCHAR(20),
+  name VARCHAR(50),
   password VARCHAR(50)
 );

@@ -1,18 +1,15 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
          ApplicationContext context =
                  new ClassPathXmlApplicationContext
                          ("context.xml");
 
-        UsersDao dao = context.getBean(UsersDao.class);
-        dao.find("Lion");
+        ConsumersDao dao = context.getBean(ConsumersDao.class);
+        System.out.println(dao.find("Евгения"));
 
 
 
